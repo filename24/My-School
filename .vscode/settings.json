@@ -1,0 +1,8 @@
+{
+  "eslint.workingDirectories": [{ "pattern": "./workspace/*" }],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+}

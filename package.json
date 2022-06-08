@@ -1,0 +1,21 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "https://github.com/ankhgerel/School",
+  "author": "__filename",
+  "license": "Apache",
+  "workspaces": [
+    "workspace/*"
+  ],
+  "devDependencies": {
+    "@types/eslint": "^8",
+    "@types/prettier": "^2",
+    "eslint": "^8.17.0",
+    "prettier": "^2.6.2",
+    "turbo": "^1.2.16"
+  },
+  "dependencies": {
+    "typescript": "^4.7.3"
+  }
+}
