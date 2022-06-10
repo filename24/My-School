@@ -1,9 +1,11 @@
 {
-	"recommendations": [
-		"esbenp.prettier-vscode",
-		"dbaeumer.vscode-eslint",
-		"github.vscode-pull-request-github",
-		"codezombiech.gitignore",
-		"eamodio.gitlens",
-	]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "github.vscode-pull-request-github",
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+    "bradlc.vscode-tailwindcss",
+    "bycedric.vscode-expo"
+  ]
 }
