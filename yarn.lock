@@ -96,10 +96,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/cookie@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@fastify/cookie@npm:7.0.0"
+  dependencies:
+    cookie-signature: ^1.1.0
+    fastify-plugin: ^3.0.1
+  checksum: abc6f2276831824d6bf1719d42f3c9fe90298468543e2cb2b1fe47928b9fac5989d135204c5ae08f200edc74c74c6519d8bf24395ec42d040fd1d417c934b8e9
+  languageName: node
+  linkType: hard
+
+"@fastify/cors@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@fastify/cors@npm:8.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    vary: ^1.1.2
+  checksum: e10cd888225f30a2f715fb66503e91499524c52c9597a608bc0ac15c5ecb71c02057055864f779507b116b243c3fffb594b4e7943b88a708ca1992d8e3c4627d
+  languageName: node
+  linkType: hard
+
 "@fastify/error@npm:^2.0.0":
   version: 2.0.0
   resolution: "@fastify/error@npm:2.0.0"
   checksum: ecf0834966b2bfb33ff834e3d55fe4dc04cbe9f822fda6c937b12cce4f162be4f8b0577ee665bc856d7012b1640c12472a1829a22ae38d287342c90b0f33a595
+  languageName: node
+  linkType: hard
+
+"@fastify/rate-limit@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@fastify/rate-limit@npm:7.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.1
+    ms: ^2.1.3
+    tiny-lru: ^8.0.1
+  checksum: ecb698c94b2f931c6a3282c19698a9ce7c7b59f476c3ed7b1760984765c76399c3b28ea99716e2b92bb6471e9a90a30b07f96ea5090c01768f00b5ea5a3d917c
   languageName: node
   linkType: hard
 
@@ -783,6 +814,9 @@ __metadata:
   dependencies:
     "@anhgerel/utils": latest
     "@discordjs/collection": ^0.7.0
+    "@fastify/cookie": ^7.0.0
+    "@fastify/cors": ^8.0.0
+    "@fastify/rate-limit": ^7.0.0
     "@types/node": ^17.0.41
     fastify: ^3.29.0
     mongoose: ^6.3.6
@@ -1042,6 +1076,13 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
+  languageName: node
+  linkType: hard
+
+"cookie-signature@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "cookie-signature@npm:1.2.0"
+  checksum: d11f56f909733695d989511bf0e1dd874220d818b9d118945dce3c275fa50adfb3f6984354de0f5eefdc9347951a22ba3545230a762576019d23c16055b12d4c
   languageName: node
   linkType: hard
 
@@ -1636,6 +1677,13 @@ __metadata:
   version: 2.1.1
   resolution: "fast-safe-stringify@npm:2.1.1"
   checksum: a851cbddc451745662f8f00ddb622d6766f9bd97642dabfd9a405fb0d646d69fc0b9a1243cbf67f5f18a39f40f6fa821737651ff1bceeba06c9992ca2dc5bd3d
+  languageName: node
+  linkType: hard
+
+"fastify-plugin@npm:^3.0.0, fastify-plugin@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "fastify-plugin@npm:3.0.1"
+  checksum: 131ba0a388f777829c3fb0fd5b75cf057688ce6d0ca354fb1ebf829767a8c853b0825762b9185b5200097454df0ede2f3095da2efe1aa1b3736d07f194e6d374
   languageName: node
   linkType: hard
 
@@ -2739,7 +2787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1":
+"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1, ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
@@ -4167,6 +4215,13 @@ __metadata:
   version: 2.3.0
   resolution: "v8-compile-cache@npm:2.3.0"
   checksum: adb0a271eaa2297f2f4c536acbfee872d0dd26ec2d76f66921aa7fc437319132773483344207bdbeee169225f4739016d8d2dbf0553913a52bb34da6d0334f8e
+  languageName: node
+  linkType: hard
+
+"vary@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "vary@npm:1.1.2"
+  checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
   languageName: node
   linkType: hard
 

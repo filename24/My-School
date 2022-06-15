@@ -4,6 +4,10 @@ import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import RequestHandler from './RequestHandler';
 import fs from 'fs';
 import path from 'path';
+import cors from '@fastify/cors';
+import cookie, { fastifyCookie } from '@fastify/cookie';
+import fastifyRateLimit from '@fastify/rate-limit';
+import fastifyCors from '@fastify/cors';
 
 class ServerClient {
   public server: FastifyInstance;
@@ -25,6 +29,8 @@ class ServerClient {
 
       this.logger.info(`Server listening on ${address}`);
     });
+
+    this.setupMiddlewares();
   }
 
   public load(routerPath: string = path.join(__dirname, '../router')) {
@@ -47,21 +53,41 @@ class ServerClient {
 
     this.logger.debug(`Successfully loaded ${this.routers.size} routers.`);
 
-    this.routers.forEach((router, name) => {
+    this.routers.forEach((router) => {
       this.server.register(
         async (fastify, options) => {
           await router.execute(fastify, options, this.logger);
         },
         {
-          prefix: `/v1/${name}`,
+          prefix: router.name,
         },
       );
     });
   }
+
   public register(route: RequestHandler, name: string) {
     if (this.routers.get(name)) return this.logger.error(`Route ${name} already exists`);
 
     return this.routers.set(name, route);
+  }
+
+  private setupMiddlewares() {
+    this.server.register(fastifyCors, {
+      origin: (origin, callback) => {
+        const { hostname } = new URL(origin);
+
+        if (hostname !== 'localhost' && this.options.mode === 'development') {
+          return callback(new Error('The server is currently being checked.'), false);
+        }
+      },
+    });
+
+    this.server.register(fastifyCookie);
+    this.server.register(fastifyRateLimit, {
+      global: true,
+      max: 150,
+      timeWindow: 1000 * 60 * 5,
+    });
   }
 }
 
