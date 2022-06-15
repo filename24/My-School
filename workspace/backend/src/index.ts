@@ -1,8 +1,22 @@
-import fastify from 'fastify';
-import v1 from './router/v1';
+import ServerClient from './classes/ServerClient';
+import path from 'path';
+import { Logger } from '@anhgerel/utils';
 
-const server = fastify({
-  logger: true,
+const logger = new Logger('main');
+const client = new ServerClient({
+  fastify: {
+    requestTimeout: 1000 * 60 * 0.5,
+  },
+  mode: 'development',
+});
+const { server } = client;
+
+process.on('unhandledRejection', (err: any) => {
+  logger.error(err.stack as string);
+});
+
+process.on('uncaughtException', (err) => {
+  logger.error(err.stack as string);
 });
 
 server.all('/', async (req, res) => {
@@ -12,12 +26,5 @@ server.all('/', async (req, res) => {
   });
 });
 
-server.register(v1.users);
-
-server.listen('3000', (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`Server listening on ${address}`);
-});
+client.load(path.join(__dirname, './router/v1'));
+client.start(3000);
