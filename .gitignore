@@ -7,6 +7,7 @@ logs/
 npm-debug.log*
 
 # Runtime data
+flutter/
 pids
 *.pid
 *.seed

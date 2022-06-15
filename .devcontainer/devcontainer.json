@@ -1,0 +1,23 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/javascript-node-mongo
+// Update the VARIANT arg in docker-compose.yml to pick a Node.js version
+{
+  "name": "Node.js & Mongo DB",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000, 27017, 19000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.2-stable.tar.xz && tar -xvf flutter_linux_3.0.2-stable.tar.xz && rm flutter_linux_3.0.2-stable.tar.xz && mv flutter_linux_3.0.2-stable /usr/local/bin/flutter && flutter doctor",
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node",
+  "features": {
+    "github-cli": "latest",
+    "java": "17",
+    "gradle": "latest",
+    "ruby": "latest"
+  }
+}

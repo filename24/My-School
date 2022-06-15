@@ -6,6 +6,7 @@
     "codezombiech.gitignore",
     "eamodio.gitlens",
     "bradlc.vscode-tailwindcss",
-    "bycedric.vscode-expo"
+    "mongodb.mongodb-vscode",
+    "dart-code.flutter"
   ]
 }
