@@ -1,13 +1,4 @@
-import { Logger } from '@anhgerel/utils';
-import { FastifyInstance, FastifyPluginOptions } from 'fastify';
-
+import { Middleware } from '@koa/router';
 export default class RequestHandler {
-  constructor(public readonly name: string, public readonly execute: RequestFunction) {}
+  constructor(public readonly name: string, public readonly execute: Middleware) {}
 }
-
-type RequestFunction = (
-  fastify: FastifyInstance,
-  options: FastifyPluginOptions,
-  logger: Logger,
-  error?: Error | null,
-) => Promise<any>;

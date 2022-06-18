@@ -13,13 +13,14 @@
   "dependencies": {
     "@anhgerel/utils": "latest",
     "@discordjs/collection": "^0.7.0",
-    "@fastify/cookie": "^7.0.0",
-    "@fastify/cors": "^8.0.0",
-    "@fastify/rate-limit": "^7.0.0",
-    "fastify": "^3.29.0",
+    "@koa/cors": "^3.3.0",
+    "@koa/router": "^10.1.1",
+    "@types/koa": "^2.13.4",
+    "koa": "^2.13.4",
     "mongoose": "^6.3.6"
   },
   "devDependencies": {
+    "@types/koa__router": "^8.0.11",
     "@types/node": "^17.0.41",
     "ts-node": "^10.8.1",
     "ts-node-dev": "^2.0.0",

@@ -1,34 +1,29 @@
 import { Logger } from '@anhgerel/utils';
 import Collection from '@discordjs/collection';
-import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
+import Koa from 'koa';
+import Router from '@koa/router';
 import RequestHandler from './RequestHandler';
 import fs from 'fs';
 import path from 'path';
-import cors from '@fastify/cors';
-import cookie, { fastifyCookie } from '@fastify/cookie';
-import fastifyRateLimit from '@fastify/rate-limit';
-import fastifyCors from '@fastify/cors';
 
 class ServerClient {
-  public server: FastifyInstance;
+  public server: Koa;
   public routers: Collection<string, RequestHandler> = new Collection();
   private logger: Logger;
   public readonly options: ServerClientOptions;
+  public router: Router;
 
   constructor(options: ServerClientOptions) {
     this.logger = new Logger('ServerClient', {
       dev: options.mode == 'development',
     });
-    this.server = fastify(options.fastify);
+    this.server = new Koa(options.koa);
+    this.router = new Router();
     this.options = options;
   }
 
   public start(port: string | number) {
-    this.server.listen(port, this.options.mode == 'production' ? '0.0.0.0' : 'localhost', async (err, address) => {
-      if (err) return this.logger.fatal(err.message);
-
-      this.logger.info(`Server listening on ${address}`);
-    });
+    this.server.listen(port);
 
     this.setupMiddlewares();
   }
@@ -54,14 +49,7 @@ class ServerClient {
     this.logger.debug(`Successfully loaded ${this.routers.size} routers.`);
 
     this.routers.forEach((router) => {
-      this.server.register(
-        async (fastify, options) => {
-          await router.execute(fastify, options, this.logger);
-        },
-        {
-          prefix: router.name,
-        },
-      );
+      this.router.all(router.name, router.execute);
     });
   }
 
@@ -92,7 +80,14 @@ class ServerClient {
 }
 
 export interface ServerClientOptions {
-  fastify?: FastifyServerOptions;
+  koa?: {
+    env?: string | undefined;
+    keys?: string[] | undefined;
+    proxy?: boolean | undefined;
+    subdomainOffset?: number | undefined;
+    proxyIpHeader?: string | undefined;
+    maxIpsCount?: number | undefined;
+  };
   mode?: 'production' | 'development';
 }
 
