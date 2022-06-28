@@ -1,17 +1,41 @@
-name: Deploy to Firebase
+name: Build and Deploy
 on:
   push:
     branches:
       - main
+      - stable
+
 jobs:
-  main:
-    name: Build and Deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Firebase
-        uses: sws2apps/firebase-deployment@v2 #consider using pin for dependabot auto update
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: yarn install
+      - name: Build
+        run: yarn workspace backend build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
         with:
-          project: 'madegod-school-projec' #required
-          config: 'workspaces/backend/firebase.json' #optional
+          name: backend
+          path: workspaces/backend
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: backend
+          path: backend
+      - name: Deploy to Firebase
+        uses: joinflux/firebase-tools@master
+        with:
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
