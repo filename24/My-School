@@ -1,0 +1,17 @@
+name: Deploy to Firebase
+on:
+  push:
+    branches:
+      - main
+jobs:
+  main:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Firebase
+        uses: sws2apps/firebase-deployment@v2 #consider using pin for dependabot auto update
+        with:
+          project: 'madegod-school-projec' #required
+          config: 'workspaces/backend/firebase.json' #optional
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
