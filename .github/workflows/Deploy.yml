@@ -17,8 +17,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
-      - name: Login in firebase
+      
+      - name: Build
+        run: yarn build
+        
+      - name: Deploy in firebase
         run: |
-          cd workspace/backend
-          firebase deploy -m "build: Hosting build for branch ${GITHUB_REF##*/} - ${GITHUB_SHA::7}" --project madegod-school-project --token "${{ secrets.FIREBASE_TOKEN}}"
+          yarn workspace backend firebase deploy -m "build: Hosting build for branch ${GITHUB_REF##*/} - ${GITHUB_SHA::7}" --project madegod-school-project --token "${{ secrets.FIREBASE_TOKEN}}"
