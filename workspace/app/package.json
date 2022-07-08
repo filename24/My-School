@@ -1,8 +1,0 @@
-{
-  "name": "app",
-  "scripts": {
-    "start": "flutter run",
-    "test": "flutter test",
-    "lint": "flutter analyze"
-  }
-}

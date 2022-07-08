@@ -1,4 +1,4 @@
-# my_class
+# myschool
 
 A new Flutter project.
 
