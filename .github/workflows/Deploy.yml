@@ -1,0 +1,26 @@
+name: Build and Deploy
+on: [push]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node v17
+        uses: actions/setup-node@v2
+        with:
+          node-version: 17
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Build
+        run: yarn build
+        
+      - name: Deploy in firebase
+        run: |
+          yarn workspace backend firebase deploy -m "build: Hosting build for branch ${GITHUB_REF##*/} - ${GITHUB_SHA::7}" --project madegod-school-project --token "${{ secrets.FIREBASE_TOKEN}}" --debug
