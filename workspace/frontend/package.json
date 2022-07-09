@@ -1,25 +1,31 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
+  "description": "Next.js starter template with Tailwind CSS.",
+  "version": "0.0.0",
+  "repository": "https://github.com/ankhgerel/School",
+  "author": "__filename",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && next export",
+    "start": "next start"
   },
   "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "@headlessui/react": "^1.6.6",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.3",
+    "mongoose": "^6.4.4",
+    "next": "^12.2.1",
+    "next-pwa": "latest",
+    "node-fetch": "^3.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/eslint": "^8",
-    "@types/node": "17.0.41",
-    "@types/react": "18.0.12",
-    "@types/react-dom": "18.0.5",
-    "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6",
-    "typescript": "4.7.3"
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.5",
+    "typescript": "^4.7.4"
   }
 }
