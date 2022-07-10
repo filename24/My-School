@@ -5,9 +5,7 @@ import { User } from '@typings/*';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @Inject() private readonly userModel: Model<User>,
-  ) { }
+  constructor(@Inject() private readonly userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const createdUser = await this.userModel.create(createUserDto);

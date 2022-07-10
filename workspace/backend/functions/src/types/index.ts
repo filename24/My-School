@@ -1,8 +1,8 @@
-import { HttpStatus } from "@nestjs/common";
+import { HttpStatus } from '@nestjs/common';
 
 export interface RestContent {
   data: any;
-  code: HttpStatus
+  code: HttpStatus;
   [key: string]: any;
 }
 

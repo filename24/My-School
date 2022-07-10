@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { type APIContent, EndPoint } from 'typings';
+import { type APIContent, EndPoint } from '../../typings';
 import { useState } from 'react';
 import Redirect from '@components/Redirect';
 

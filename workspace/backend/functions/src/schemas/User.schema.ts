@@ -1,5 +1,5 @@
-import { Schema } from "mongoose";
-import { User, UserFlags } from "@typings/*"
+import { Schema } from 'mongoose';
+import { User, UserFlags } from '@typings/*';
 
 export const UserSchema = new Schema<User>({
   id: {
@@ -39,6 +39,5 @@ export const UserSchema = new Schema<User>({
     required: true,
     default: Date.now,
   },
-  schools: Array
-
-})
+  schools: Array,
+});

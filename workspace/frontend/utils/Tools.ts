@@ -1,4 +1,4 @@
-import { Theme } from "@types"
+import { Theme } from "@typings"
 
 export function systemTheme(): Theme {
   try {

@@ -9,7 +9,7 @@ class Provider {
 }
 
 export interface FactoryProvider extends IFactoryProvider {
-  provide: InjectToken
-  inject?: InjectToken[]
+  provide: InjectToken;
+  inject?: InjectToken[];
 }
 export default Provider;

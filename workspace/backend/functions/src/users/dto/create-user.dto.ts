@@ -1,4 +1,4 @@
-import { User } from "@typings/*";
+import { User } from '@typings/*';
 
 export class CreateUserDto implements User {
   id: string;
