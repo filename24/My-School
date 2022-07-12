@@ -1,36 +1,24 @@
+import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-
-import '@styles/global.css';
+import BaseLayout from '../components/BaseLayout';
 import { useEffect, useState } from 'react';
 
-import BaseSEO from '@components/BaseSEO';
-import Navbar from '@components/Navbar';
-import { Theme } from '@typings';
-import { systemTheme } from 'utils/Tools';
-import BaseLayout from '@components/BaseLayout';
-
-const App = ({ Component, pageProps }: AppProps) => {
-  const [theme, setTheme] = useState<Theme>('system');
+function MyApp({ Component, pageProps }: AppProps) {
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
-    if (localStorage.theme) {
-      setTheme(localStorage.theme);
-    } else {
-      localStorage.setItem('theme', systemTheme());
-      setTheme(systemTheme());
+    if (localStorage.theme) setTheme(localStorage.theme);
+    else {
+      localStorage.setItem('theme', 'dark');
     }
-
-    console.log(`Hello World`);
-    console.log(theme);
-  }, []);
+  });
   return (
-    <div className={`${theme} flex flex-col`}>
-      <BaseSEO />
-      <BaseLayout setTheme={setTheme} theme={theme}>
+    <div className={theme}>
+      <BaseLayout>
         <Component {...pageProps} />
       </BaseLayout>
     </div>
   );
-};
+}
 
-export default App;
+export default MyApp;
