@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        tHeader: 'rgb(30 64 175)',
+        tHeader: '#1e40af',
       },
     },
   },

@@ -2,9 +2,11 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import BaseLayout from '../components/BaseLayout';
 import { useEffect, useState } from 'react';
+import Navbar from '@components/Navbar';
+import { Theme } from '@types';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
     if (localStorage.theme) setTheme(localStorage.theme);
@@ -14,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   return (
     <div className={theme}>
+      <Navbar theme={theme} setTheme={setTheme} />
       <BaseLayout>
         <Component {...pageProps} />
       </BaseLayout>

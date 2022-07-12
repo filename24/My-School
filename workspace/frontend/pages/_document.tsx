@@ -31,6 +31,11 @@ class CustomDocument extends Document {
 
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHTH501J9H"></script>
           <script
+            data-ad-client="ca-pub-7935437181809915"
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935437181809915"
             crossOrigin="anonymous"
