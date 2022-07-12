@@ -5,10 +5,7 @@ const Config = {
   publicRuntimeConfig: {
     site: {
       name: 'My School',
-      url:
-        process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3000'
-          : 'https://school.anhgerel.ml',
+      url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://anhgerel.ml',
       title: 'My School',
       description: '',
       socialPreview: '/images/preview.png',

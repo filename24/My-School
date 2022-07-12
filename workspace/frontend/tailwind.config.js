@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         'theme-dark': '#0f172a',
         black: 'rgb(17 24 39)',
+        cover: 'rgb(21 94 117)',
       },
     },
   },

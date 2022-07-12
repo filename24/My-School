@@ -7,6 +7,7 @@ import BaseSEO from '@components/BaseSEO';
 import Navbar from '@components/Navbar';
 import { Theme } from '@typings';
 import { systemTheme } from 'utils/Tools';
+import BaseLayout from '@components/BaseLayout';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [theme, setTheme] = useState<Theme>('system');
@@ -25,10 +26,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <div className={`${theme} flex flex-col`}>
       <BaseSEO />
-      <Navbar setTheme={setTheme} theme={theme} />
-      <div className="dark:bg-black bg-slate-200 min-h-screen">
+      <BaseLayout setTheme={setTheme} theme={theme}>
         <Component {...pageProps} />
-      </div>
+      </BaseLayout>
     </div>
   );
 };

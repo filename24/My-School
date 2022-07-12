@@ -1,58 +1,76 @@
-import getConfig from 'next/config';
+import { metaData } from '@utils/Constants';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { FC } from 'react';
 
-const { publicRuntimeConfig } = getConfig();
+interface BaseSEOProps {
+  title: string;
+  description: string;
+  ogType: string;
+  ogImage:
+    | string
+    | {
+        '@type': string;
+        url: string;
+      }[];
+  twImage: string;
+  canonicalUrl?: string;
+}
 
-type BaseSEOProps = {
-  title?: string;
-  description?: string;
-  date?: string;
-  socialPreview?: string;
-};
-
-const BaseSEO = ({ ...customMeta }: BaseSEOProps) => {
+export const BaseSEO: FC<BaseSEOProps> = ({
+  title,
+  description,
+  ogType,
+  ogImage,
+  twImage,
+  canonicalUrl,
+}) => {
   const router = useRouter();
-  const { asPath } = router;
-
-  const { name, url, title, description, socialPreview } = publicRuntimeConfig.site;
-
-  const meta = {
-    name,
-    url,
-    title,
-    description,
-    socialPreview,
-    ...customMeta,
-  };
-
   return (
-    <>
-      <Head>
-        <link rel="icon" href="/favicon.ico" key="favicon" />
-        <link rel="canonical" href={`${url}${asPath}`} key="canonical" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" key="twitter_card" />
-        <meta name="twitter:title" content={meta.title} key="twitter_title" />
-        <meta name="twitter:description" content={meta.description} key="twitter_description" />
-        <meta name="twitter:image" content={`${url}${socialPreview}`} key="twitter_image" />
-
-        {/* Open Graph */}
-        <meta property="og:url" content={`${url}${asPath}`} key="og_url" />
-        <meta property="og:site_name" content={meta.name} key="og_site_name" />
-        <meta property="og:title" content={meta.title} key="og_title" />
-        <meta property="og:description" content={meta.description} key="og_description" />
-        <meta property="og:image" content={`${url}${socialPreview}`} key="og_image" />
-        <meta property="og:image:width" content={`1200`} key="og_image_width" />
-        <meta property="og:image:height" content={`630`} key="og_image_height" />
-
-        <meta name="description" content={meta.description} key="description" />
-        {meta.date && <meta property="article:published_time" content={meta.date} />}
-        <title key="title">{meta.title}</title>
-      </Head>
-    </>
+    <Head>
+      <title>{title}</title>
+      <meta name="robots" content="follow, index" />
+      <meta name="description" content={description} />
+      <meta property="og:url" content={`${metaData.url}${router.asPath}`} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content={metaData.title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title} />
+      {Array.isArray(ogImage) ? (
+        ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
+      ) : (
+        <meta property="og:image" content={ogImage} key={ogImage} />
+      )}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={metaData.socials.twitter} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={twImage} />
+      <link
+        rel="canonical"
+        href={canonicalUrl ? canonicalUrl : `${metaData.url}${router.asPath}`}
+      />
+    </Head>
   );
 };
 
-export default BaseSEO;
+interface PageSEOProps {
+  title?: string;
+  description?: string;
+}
+
+const PageSEO: FC<PageSEOProps> = ({ title, description }) => {
+  const ogImageUrl = metaData.url + metaData.socials.banner;
+  const twImageUrl = metaData.url + metaData.socials.banner;
+  return (
+    <BaseSEO
+      title={title || metaData.title}
+      description={description || metaData.description}
+      ogType="website"
+      ogImage={ogImageUrl}
+      twImage={twImageUrl}
+    />
+  );
+};
+
+export default PageSEO;

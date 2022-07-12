@@ -16,3 +16,16 @@ export const userNavigation = [
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ];
+
+export const metaData = {
+  url: process.env.NODE_ENV === 'production' ? 'https://anhgerel.com' : 'http://localhost:3000',
+  title: 'My School',
+  description: 'My School coming soon...',
+  socials: {
+    mail: "madegod@kakao.com",
+    facebook: "https://www.facebook.com/dev.filename",
+    github: "https://github.com/ankhgerel",
+    twitter: "https://twitter.com/",
+    banner: '/images/filename.png',
+  }
+}
