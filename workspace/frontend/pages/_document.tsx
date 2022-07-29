@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-import { Brand } from '@utils/Constants';
+import { Brand, GoogleSystem } from '@utils/Constants';
 
 class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -29,15 +29,13 @@ class CustomDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHTH501J9H"></script>
           <script
-            data-ad-client="ca-pub-7935437181809915"
             async
-            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GoogleSystem.TrackingID}`}
           ></script>
           <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935437181809915"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GoogleSystem.AdClientID}`}
             crossOrigin="anonymous"
           ></script>
           <script
@@ -47,8 +45,8 @@ class CustomDocument extends Document {
 						function gtag(){window.dataLayer.push(arguments);}
 						gtag('js', new Date());
 
-						gtag('config', 'G-DHTH501J9H');
-						
+						gtag('config', ${GoogleSystem.TrackingID});
+
 						if(/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
 							window.location = 'microsoft-edge:' + window.location;
 							setTimeout(function() {
@@ -58,14 +56,12 @@ class CustomDocument extends Document {
 						`,
             }}
           />
-          <noscript>
-            <p>This website requires JavaScript to be enabled.</p>
-          </noscript>
+          <noscript>This website requires JavaScript to be enabled.</noscript>
         </Head>
         <body className="h-full overflow-x-hidden">
           <Main />
-          <NextScript />
         </body>
+        <NextScript />
       </Html>
     );
   }

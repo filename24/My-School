@@ -2,11 +2,10 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
+    "prisma.prisma",
     "github.vscode-pull-request-github",
-    "codezombiech.gitignore",
     "eamodio.gitlens",
     "bradlc.vscode-tailwindcss",
-    "mongodb.mongodb-vscode",
     "dart-code.flutter"
   ]
 }

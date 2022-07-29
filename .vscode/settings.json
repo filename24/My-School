@@ -1,11 +1,24 @@
 {
-  "eslint.workingDirectories": [{ "pattern": "./workspace/**" }],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+  },
+  "eslint.workingDirectories": [{ "pattern": "./workspace/**" }],
   "editor.tabSize": 2,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "database": "test",
+      "username": "root",
+      "password": "asdf",
+      "name": "asdf"
+    }
+  ]
 }

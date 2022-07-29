@@ -1,0 +1,39 @@
+# Packages
+node_modules/
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+flutter/
+pids
+*.pid
+*.seed
+
+# Env
+.env
+
+# Dist
+dist/
+out/
+# Miscellaneous
+.tmp/
+.turbo
+.idea/
+.DS_Store
+.vercel
+
+# yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Other workspace
+#workspace/
+#!workspace/frontend
