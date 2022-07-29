@@ -18,5 +18,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Generate prisma
+        run: yarn workspace backend prisma generate
+
       - name: Build
         run: yarn build
