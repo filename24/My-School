@@ -1,13 +1,9 @@
-/**@type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
-    extend: {
-      colors: {
-        tHeader: '#1e40af',
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
