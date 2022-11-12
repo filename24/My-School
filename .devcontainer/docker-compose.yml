@@ -9,10 +9,11 @@ services:
         # Update 'VARIANT' to pick an LTS version of Node.js: 18, 16, 14.
         # Append -bullseye or -buster to pin to an OS version.
         # Use -bullseye variants on local arm64/Apple Silicon.
-        VARIANT: 14-buster
+        VARIANT: 16-bullseye
+
     volumes:
       - ..:/workspace:cached
-
+      
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
@@ -26,19 +27,17 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: mongo:latest
+    image: postgres:latest
     restart: unless-stopped
     volumes:
-      - mongodb-data:/data/db
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
 
-    # Uncomment to change startup options
-    # environment:
-    #  MONGO_INITDB_ROOT_USERNAME: root
-    #  MONGO_INITDB_ROOT_PASSWORD: example
-    #  MONGO_INITDB_DATABASE: your-database-here
-
-    # Add "forwardPorts": ["27017"] to **devcontainer.json** to forward MongoDB locally.
+    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
 volumes:
-  mongodb-data:
+  postgres-data:

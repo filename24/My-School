@@ -1,15 +1,9 @@
-/**@type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
-    extend: {
-      colors: {
-        'theme-dark': '#0f172a',
-        black: 'rgb(17 24 39)',
-      },
-    },
+    extend: {},
   },
-  variants: {},
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [],
 };

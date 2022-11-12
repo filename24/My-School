@@ -1,34 +1,44 @@
 {
   "name": "frontend",
-  "description": "Next.js starter template with Tailwind CSS.",
-  "version": "0.0.0",
-  "repository": "https://github.com/ankhgerel/School",
-  "author": "__filename",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.6",
-    "@tailwindcss/forms": "^0.5.2",
-    "@tailwindcss/typography": "^0.5.3",
-    "mongoose": "^6.4.4",
-    "next": "^12.2.1",
-    "next-pwa": "latest",
-    "node-fetch": "^3.2.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "autoprefixer": "^10.4.8",
+    "next": "12.2.5",
+    "next-auth": "^4.10.3",
+    "postcss": "^8.4.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "@types/node": "^18.0.3",
-    "@types/react": "^18.0.15",
-    "autoprefixer": "^10.4.7",
-    "eslint-config-next": "12.2.2",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.5",
-    "typescript": "^4.7.4"
+    "@babel/core": "^7.18.13",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-docs": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "18.7.11",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "babel-loader": "^8.2.5",
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-plugin-storybook": "^0.6.4",
+    "prisma": "^4.2.1",
+    "typescript": "4.7.4"
   }
 }

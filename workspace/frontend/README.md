@@ -1,40 +1,34 @@
-# Next.js + Tailwind CSS template
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This project template aims to simplify the setup of Tailwind CSS on your Next.js app.
+## Getting Started
 
-Before using this template, please make sure that your development environment is ready as stated on [Next.js](https://nextjs.org/learn/basics/create-nextjs-app/setup) website.
+First, run the development server:
 
-## Create a Next.js App
-
-To create a Next.js app with this template, open your terminal, `cd` into the directory you'd like to create the app in, and run the command below:
-
-Note:
-Replace `nextjs-blog` with the project name you'd like to create, eg. `my-nextjs-app`.
-
-```
-npx create-next-app nextjs-blog --use-npm --example "https://github.com/earvinpiamonte/nextjs-tailwindcss-template"
-```
-
-## Run development server
-
-```
-cd nextjs-blog
-```
-
-```
+```bash
 npm run dev
+# or
+yarn dev
 ```
 
-## Deploy with Vercel
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Deploy this template using Vercel:
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/earvinpiamonte/nextjs-tailwindcss-template)
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-## Maintainer
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project is maintained by [Noel Earvin Piamonte](https://www.earvinpiamonte.com).
+## Learn More
 
-## Credits
+To learn more about Next.js, take a look at the following resources:
 
-[Deploy button image](https://vercel.com/button) used on this `README.md` is owned by [Vercel](https://vercel.com).
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
