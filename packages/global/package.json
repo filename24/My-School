@@ -1,21 +1,24 @@
 {
-  "name": "@school/global",
+  "name": "@my-school/global",
   "description": "Global variables",
   "version": "0.0.0",
   "packageManager": "yarn@3.2.1",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "require": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
   },
+  "main": "./src/index.ts",
   "scripts": {
-    "build": "tsc --project ./tsconfig.json",
+    "build": "tsup",
     "lint": "eslint ./src/**/*.ts --fix && prettier --write ./src/**/*.ts"
   },
   "dependencies": {
     "@sapphire/snowflake": "^3.2.2"
+  },
+  "devDependencies": {
+    "tsup": "^6.4.0"
   }
 }

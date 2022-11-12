@@ -41,14 +41,14 @@ export default NextAuth({
       return token;
     },
     async session({ session, token, user }) {
-      // Send properties to the client, like an access_token from a provider.
+      // @ts-ignore
       session.accessToken = token.accessToken;
       return session;
     },
 
     async signIn({ account, profile }) {
-      if (account.provider === 'google') {
-        return Boolean(profile.email_verified && profile.email?.endsWith('@gmail.com'));
+      if (account?.provider === 'google') {
+        return Boolean(profile?.email?.endsWith('@gmail.com'));
       }
       return true;
     },
